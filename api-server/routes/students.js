@@ -1,22 +1,19 @@
-let mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+let express = require('express');
+const app = express();
 
-// Define collection and schema
-let Student = new Schema({
-    name: {
-        type: String
-    },
-    email: {
-        type: String
-    },
-    cohort: {
-        type: String
-    },
-    phoneNumber: {
-        type: Number
-    }
-},{
-   collection: 'students' 
+// Mongoose Model
+let Student = require('../models/students');
+let studentRoute = express.Router();
+
+// Student route for mongo get
+studentRoute.route('/').get((req, res) => {
+    Student.find((error, data)=>{
+        if(error){
+            return next(error)
+        }else{
+            res.json(data)
+        }
+    })
 })
 
-module.exports = mongoose.model('Student', Student)
+module.exports = studentRoute;
