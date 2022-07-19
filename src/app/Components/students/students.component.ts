@@ -16,10 +16,10 @@ export class StudentsComponent implements OnInit {
   constructor(private studentsService: StudentsService, private route: Router) { }
 
   ngOnInit(): void {
-    this.getAllStudents()
+    this.allStudents()
   }
 
-  getAllStudents(): void{
+  allStudents(): void{
       this.studentsService.getStudents().subscribe((allStudents) => {
         this.students = allStudents
     })
@@ -34,7 +34,7 @@ export class StudentsComponent implements OnInit {
         alert('Error While Deleting Record');
       },
       complete: () => {
-        this.getAllStudents();
+        this.allStudents();
       }
     })
   };

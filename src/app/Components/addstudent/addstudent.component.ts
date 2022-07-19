@@ -51,6 +51,7 @@ export class AddstudentComponent implements OnInit {
       },
       complete: () =>{
         alert(`Student Added`);
+        this.route.navigate(['/home'])
       }
     }
   )}
