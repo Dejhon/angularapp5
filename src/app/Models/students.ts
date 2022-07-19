@@ -1,4 +1,7 @@
 export class Students {
+    push(addedStudent: Students) {
+      throw new Error('Method not implemented.');
+    }
     id: number;
     name: string;
     email: string;

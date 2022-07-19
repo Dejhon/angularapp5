@@ -17,7 +17,9 @@ export class DialogueComponent implements OnInit {
 
   constructor(private studentsService: StudentsService,private formBuilder : FormBuilder, 
     @Inject(MAT_DIALOG_DATA) public editData: any, private dialogRef: MatDialogRef<DialogueComponent>,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) { 
+      
+    }
 
   ngOnInit(): void {
     this.studentForm = this.formBuilder.group({

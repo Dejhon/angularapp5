@@ -5,10 +5,20 @@
 
     <div class="container">
         <div class="name">
-            <mat-form-field appearance="outline">
-                <mat-label>Outline form field</mat-label>
-                <input matInput placeholder="Placeholder" formControlName="name">
-              </mat-form-field>
+           <label for=""> Fullname:</label><br>
+           <input type="text" formControlName="name" >
+        </div>
+        <div class="email">
+            <label for="">Email:</label><br>
+            <input type="email" formControlName="email">
+        </div>
+        <div class="cohort">
+            <label for="">Cohort</label><br>
+            <input type="number" formControlName="cohort">
+        </div>
+        <div class="number">
+            <label for="">Phone Number:</label><br>
+            <input type="text" formControlName="phoneNumber">
         </div>
     </div>
    

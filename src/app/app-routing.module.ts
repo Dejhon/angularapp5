@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddstudentComponent } from './Components/addstudent/addstudent.component';
+import { StudentsComponent } from './Components/students/students.component';
+import { UpdatestudentComponent } from './Components/updatestudent/updatestudent.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'home', component: StudentsComponent},
+  { path: 'add', component: AddstudentComponent},
+  { path: 'update/:id', component: UpdatestudentComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

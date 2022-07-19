@@ -1,0 +1,25 @@
+<!-- <form action="" [formGroup]="studentForm" autocomplete="off" method=""> -->
+    <div class="container" *ngIf="student">
+        <div class="name">
+            <label for="">First Name:</label><br>
+            <input type="text" formControlName="name" #name [(ngModel)]="student.name">
+        </div>
+        <div class="email">
+            <label for="">Email:</label><br>
+            <input type="email" formControlName="email" #email [(ngModel)]="student.email">
+        </div>
+        <div class="cohort">
+            <label for="">cohort:</label><br>
+            <input type="number" max="2" min="1" formControlName="cohort" #cohort [(ngModel)]="student.cohort">
+        </div>
+        <div class="name">
+            <label for="">Phone Number:</label><br>
+            <input type="text" formControlName="name" #phoneNumber [(ngModel)]="student.phoneNumber">
+        </div>
+        <div class="sub_btn">
+            <button (click)="update()">
+                Update
+            </button>
+        </div>
+    </div>
+ <!-- </form> -->
