@@ -1,3 +1,31 @@
 <nav>
-    <button>Add Student</button>
+    <button mat-raised-button color="warn" (click)="openDialogue()">Add Student</button>
 </nav>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>COHORT</th>
+                <th>PHONE NUMBER</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let pupil of students">
+            <tr>
+                <!-- <td>{{pupil.id}}</td> -->
+                <td>{{pupil.name}}</td>
+                <td>{{pupil.email}}</td>
+                <td>{{pupil.cohort}}</td>
+                <td>{{pupil.phoneNumber}}</td>
+                <td class="btn">
+                    <button class="edit"><mat-icon mat-flat-button color="primary">edit</mat-icon></button>
+                    <button class="delete"><mat-icon mat-flat-button color="primary">delete</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

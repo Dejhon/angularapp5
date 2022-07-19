@@ -22,5 +22,22 @@ export class StudentsService {
     );
   }
 
+  // Add Student to Database
+  addNewStudent(student: Students): Observable<Students>{
+    return this.http.post<Students>(`${this.REST_API_URL}`, student, this.HTTP_HEADER).pipe(
+      tap(newStudent => console.log(`newStudent = ${JSON.stringify(newStudent)}`)),
+      catchError(error => of(new Students())),
+    );
+  }
+
+  // Update Student in Database
+  updateMovie(student: Students): Observable<Students>{
+    return this.http.put<Students>(`${this.REST_API_URL}/${student.id}`, student, this.HTTP_HEADER).pipe(
+      tap(studentUpdate => console.log(`Update Student = ${JSON.stringify(studentUpdate)}`)),
+      catchError(error => of(new Students())),
+    );
+  }
+
+
   constructor(private http: HttpClient) { }
 }

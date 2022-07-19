@@ -1,1 +1,21 @@
-<p>dialogue works!</p>
+<h1 mat-dialog-title>Add Student Form</h1>
+<div mat-dialog-content >
+
+ <form action="" [formGroup]="studentForm" autocomplete="off">
+
+    <div class="container">
+        <div class="name">
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="name">
+              </mat-form-field>
+        </div>
+    </div>
+   
+ </form>
+
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" style="margin-left: 8px;" >{{actionBtn}}</button>
+</div>
+</div>
