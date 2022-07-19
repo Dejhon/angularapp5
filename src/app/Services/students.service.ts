@@ -31,9 +31,7 @@ export class StudentsService {
   }
 
   // Get Student By Id
-
   getStudentById(id: any):Observable<Students | any>{
-    // return of (fakeMovies.find(theMovie => theMovie.id === id));
     const thisUrl = `${this.REST_API_URL}/${id}`;
     return this.http.get<Students>(thisUrl).pipe(
       tap(thisStudent => console.log(`thisStudent = ${JSON.stringify(thisStudent)}`)),
@@ -49,8 +47,7 @@ export class StudentsService {
     );
   }
 
-
-  // Delete student By Id
+  // Delete Student By Id
   deleteStudent(id: any): Observable <Students>{
     return this.http.delete<Students>(`${this.REST_API_URL}/remove/${id}`, this.HTTP_HEADER).pipe(
       tap((deletedStudent:Students) => console.log(`deletedStudent = ${JSON.stringify(deletedStudent)}`))

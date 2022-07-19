@@ -1,23 +1,23 @@
  <form action="" [formGroup]="studentForm" autocomplete="off" method="">
-    <div class="container" *ngIf="student">
+    <div class="container">
         <div class="name">
-            <label for="">First Name:</label><br>
+            <label for="">First Name:</label>
             <input type="text" formControlName="name" #name>
         </div>
         <div class="email">
-            <label for="">Email:</label><br>
+            <label for="">Email:</label>
             <input type="email" formControlName="email" #email>
         </div>
         <div class="cohort">
-            <label for="">cohort:</label><br>
+            <label for="">cohort:</label>
             <input type="number" max="2" min="1" formControlName="cohort" #cohort>
         </div>
-        <div class="name">
-            <label for="">Phone Number:</label><br>
+        <div class="phoneNumber">
+            <label for="">Phone Number:</label>
             <input type="text" formControlName="name" #phoneNumber>
         </div>
         <div class="sub_btn">
-            <input type="submit" value="Submit" (click)="newStudent(name.value,
+            <input type="submit" value="Submit" value="ADD STUDENT" (click)="newStudent(name.value,
             email.value,
             cohort.value,
             phoneNumber.value);
