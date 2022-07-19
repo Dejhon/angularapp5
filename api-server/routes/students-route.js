@@ -1,4 +1,5 @@
 let express = require('express');
+const { create } = require('../models/students');
 const app = express();
 
 // Mongoose Model
@@ -14,6 +15,54 @@ studentRoute.route('/').get((req, res) => {
             res.json(data)
         }
     })
+});
+
+
+// Mongoose Functions
+// create()
+// findById()
+// findByIdAndUpdate()
+// findOneAndRemove()
+
+studentRoute.route('/create').post((req, res) => {
+    Student.create(req.body, (error, data) => {
+        if(error){
+            return next(error)
+        }else{
+            res.json(data)
+        }
+    })
 })
+
+studentRoute.route('/find/:id').get((req, res) => {
+    Student.findById(req.params.id, (error, data)=>{
+        if(error){
+            return next(error)
+        }else{
+            res.json(data)
+        }
+    })
+})
+
+studentRoute.route('/update/:id').put((req, res) => {
+    Student.findByIdAndUpdate(req.params.id,  (error, data)=>{
+        if(error){
+            return next(error)
+        }else{
+            res.json(data)
+        }
+    })
+})
+
+studentRoute.route('/remove/:id').delete((req, res) => {
+    Student.findOneAndRemove((error, data)=>{
+        if(error){
+            return next(error)
+        }else{
+            res.json(data)
+        }
+    })
+})
+
 
 module.exports = studentRoute;
