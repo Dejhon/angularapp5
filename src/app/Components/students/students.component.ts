@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from 'src/app/Services/students.service';
 import { Students } from 'src/app/Models/students';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class StudentsComponent implements OnInit {
 
   students!: Students[]
 
-  constructor(private studentsService: StudentsService) { }
+  constructor(private studentsService: StudentsService, private route: Router) { }
 
   ngOnInit(): void {
     this.getAllStudents()
@@ -35,7 +36,9 @@ export class StudentsComponent implements OnInit {
     })
   }
 
-  editStudent():void {
-    
+  editStudent(id:any):void {
+    this.route.navigate(['update/' + id]);
   }
+
+
 }

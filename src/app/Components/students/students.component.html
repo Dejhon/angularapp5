@@ -17,7 +17,7 @@
                 <td>{{pupil.cohort}}</td>
                 <td>{{pupil.phoneNumber}}</td>
                 <td class="btn">
-                    <button class="edit"><mat-icon mat-flat-button color="primary" routerLink="/update/{{pupil.id}}">edit</mat-icon></button>
+                    <button class="edit" (click)="editStudent(pupil.id)"><mat-icon mat-flat-button color="primary">edit</mat-icon></button>
                     <button class="delete" (click)="deleteStudent(pupil.id)"><mat-icon mat-flat-button color="primary">delete</mat-icon></button>
                 </td>
             </tr>

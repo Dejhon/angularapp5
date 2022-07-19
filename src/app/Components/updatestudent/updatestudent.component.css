@@ -1,0 +1,32 @@
+.container{
+    margin: auto;
+    width: 300px;
+    margin-top: 50px;
+}
+
+.name, .email, .cohort, .phoneNumber, .sub_btn{
+    display: grid;
+    grid-template-columns: 100%;
+    margin-top: 20px;
+}
+
+.name input, .email input, .cohort input, .phoneNumber input{
+    height: 28px;
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+label{
+    font-size: 18px;
+}
+
+.sub_btn input{
+    border: 1px solid #6161f1;
+    background-color: #6161f1;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 3px;
+}

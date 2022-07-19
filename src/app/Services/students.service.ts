@@ -31,7 +31,7 @@ export class StudentsService {
   }
 
   // Get Student By Id
-  getStudentById(id: any):Observable<Students | any>{
+  getStudentById(id: string):Observable<Students | any>{
     const thisUrl = `${this.REST_API_URL}/${id}`;
     return this.http.get<Students>(thisUrl).pipe(
       tap(thisStudent => console.log(`thisStudent = ${JSON.stringify(thisStudent)}`)),
