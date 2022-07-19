@@ -60,6 +60,7 @@ newStudent(name: string,
     newStudents.phoneNumber = +phoneNumber;
     this.studentService.addNewStudent(newStudents)
         .subscribe(newstudent => {
+          this.route.navigate(['/home'])
           this.student.push(newstudent);
           console.log(`this.student.push(newstudent) = ${JSON.stringify(newstudent)}`);
         })
