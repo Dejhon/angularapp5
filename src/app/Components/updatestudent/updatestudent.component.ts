@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StudentsService } from 'src/app/Services/students.service';
 import { Students } from 'src/app/Models/students';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -11,10 +11,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./updatestudent.component.css']
 })
 export class UpdatestudentComponent implements OnInit {
-  @Input() student!: Students;
+  ID : string  = this.activateRoute.snapshot.params['id'];
+  student !: Students;
 
-  constructor(private studentService:StudentsService, private route: ActivatedRoute, private location: Location,) { }
-
+  constructor(private studentsService:StudentsService, private activateRoute : ActivatedRoute, private router : Router ) { }
   studentForm = new FormGroup({
     name: new FormControl('',Validators.required),
     email: new FormControl('', Validators.required),
@@ -37,24 +37,29 @@ export class UpdatestudentComponent implements OnInit {
   get phoneNumber(){
     return this.studentForm.get('phoneNumber')
   }
-  
-  getStudentId(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const StudentIdFromRoute = String(routeParams.get('id'));
-    
-    // Find the student that correspond with the id provided in route.
-    this.studentService.getStudentById(StudentIdFromRoute).subscribe(theStudent => this.student = theStudent);
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  update(): void {
-    this.studentService.updateStudent(this.student).subscribe(()=>this.goBack());
-  }        
 
   ngOnInit(): void {
-    this.getStudentId
+    this.getStudentId();
   }
+
+  getStudentId(){
+    this.studentsService.getStudentById(this.ID).subscribe(
+      studentEdit => this.student = studentEdit
+    )
+  }
+
+  update(body:object){
+  this.studentsService.updateStudent(this.ID , body).subscribe({
+    next: (res) => {
+      alert(`Student Record Updated Successfully`);
+    },
+    error: () => {
+      console.log(`Error while updating record`);
+    },
+    complete: () => {
+      this.router.navigate(['/home']);
+    }
+   })
+  }
+
 }

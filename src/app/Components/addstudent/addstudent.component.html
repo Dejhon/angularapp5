@@ -17,15 +17,18 @@
             <input type="text" formControlName="name" #phoneNumber>
         </div>
         <div class="sub_btn">
-            <input type="submit" value="Submit" value="ADD STUDENT" (click)="newStudent(name.value,
-            email.value,
-            cohort.value,
-            phoneNumber.value);
-            name.value = '';
-            email.value = '';
-            cohort.value = '';
-            phoneNumber.value = '';
-            " >
+            <input type="submit" value="Submit" value="ADD STUDENT"(click)="addStudent(
+                {name : name.value.trim(),
+                email : email.value.trim(),
+                cohort: cohort.value,
+                phoneNumber: phoneNumber.value
+                }
+                );
+                name.value = '';
+                email.value = '';
+                cohort.value = '';
+                phoneNumber.value = '';
+                ">
         </div>
     </div>
  </form>

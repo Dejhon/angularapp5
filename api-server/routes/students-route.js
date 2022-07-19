@@ -24,7 +24,7 @@ studentRoute.route('/').get((req, res) => {
 // findByIdAndUpdate()
 // findOneAndRemove()
 
-studentRoute.route('/create').post((req, res) => {
+studentRoute.route('/create').post((req, res, next) => {
     Student.create(req.body, (error, data) => {
         if(error){
             return next(error)
@@ -34,7 +34,7 @@ studentRoute.route('/create').post((req, res) => {
     })
 })
 
-studentRoute.route('/find/:id').get((req, res) => {
+studentRoute.route('/find/:id').get((req, res, next) => {
     Student.findById(req.params.id, (error, data)=>{
         if(error){
             return next(error)
@@ -44,8 +44,8 @@ studentRoute.route('/find/:id').get((req, res) => {
     })
 })
 
-studentRoute.route('/update/:id').put((req, res) => {
-    Student.findByIdAndUpdate(req.params.id,  (error, data)=>{
+studentRoute.route('/update/:id').put((req, res, next) => {
+    Student.findByIdAndUpdate(req.params.id, req.body, (error, data)=>{
         if(error){
             return next(error)
         }else{
@@ -55,7 +55,7 @@ studentRoute.route('/update/:id').put((req, res) => {
 })
 
 studentRoute.route('/remove/:id').delete((req, res) => {
-    Student.findOneAndRemove((error, data)=>{
+    Student.findOneAndRemove(req.params.id, (error, data)=>{
         if(error){
             return next(error)
         }else{

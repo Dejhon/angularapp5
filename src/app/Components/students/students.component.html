@@ -1,6 +1,6 @@
 
 <div class="container">
-    <table>
+    <table >
         <thead>
             <tr>
                 <th>NAME</th>
@@ -17,8 +17,8 @@
                 <td>{{pupil.cohort}}</td>
                 <td>{{pupil.phoneNumber}}</td>
                 <td class="btn">
-                    <button class="edit" (click)="editStudent(pupil.id)"><mat-icon mat-flat-button color="primary">edit</mat-icon></button>
-                    <button class="delete" (click)="deleteStudent(pupil.id)"><mat-icon mat-flat-button color="primary">delete</mat-icon></button>
+                    <button class="edit" (click)="editRecord(pupil._id)"><mat-icon mat-flat-button color="primary">edit</mat-icon></button>
+                    <button class="delete" (click)="deleteStudent(pupil._id)"><mat-icon mat-flat-button color="primary">delete</mat-icon></button>
                 </td>
             </tr>
         </tbody>

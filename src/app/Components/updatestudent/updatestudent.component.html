@@ -1,23 +1,29 @@
-<form action="" [formGroup]="studentForm" autocomplete="off" method="">
+<form action=""  autocomplete="off" method="">
     <div class="container">
         <div class="name">
             <label for="">First Name:</label>
-            <input type="text" formControlName="name" #name [(ngModel)]="student.name">
+            <input type="text" name="name" #name value="{{student.name}}">
         </div>
         <div class="email">
             <label for="">Email:</label>
-            <input type="email" formControlName="email" #email [(ngModel)]="student.email">
+            <input type="email" name="email" #email value="{{student.email}}">
         </div>
         <div class="cohort">
             <label for="">cohort:</label>
-            <input type="number" max="2" min="1" formControlName="cohort" #cohort [(ngModel)]="student.cohort">
+            <input type="number" max="2" min="1" name="cohort" #cohort value="{{student.cohort}}" >
         </div>
         <div class="phoneNumber">
             <label for="">Phone Number:</label>
-            <input type="text" formControlName="name" #phoneNumber [(ngModel)]="student.phoneNumber">
+            <input type="text" name="phoneNumber" #phoneNumber value="{{student.phoneNumber}}">
         </div>
         <div class="sub_btn">
-            <input type="submit" value="Submit" value="ADD STUDENT" (click)="update()" >
+            <input type="submit" value="Update" (click)="update(
+                {name : name.value.trim(),
+                email : email.value.trim(),
+                cohort: cohort.value,
+                phoneNumber: phoneNumber.value
+                }
+                )"> 
         </div>
     </div>
  </form>

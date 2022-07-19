@@ -25,18 +25,21 @@ export class StudentsComponent implements OnInit {
     })
   }
 
-  deleteStudent(id: any){
+  deleteStudent(id:string):void {
     this.studentsService.deleteStudent(id).subscribe({
-      next: () =>{
-        alert("Record Deleted Successfully")
+      next: () => {
+        alert("Student's Record Deleted Successfully");
       },
-      error: () =>{
-        alert("Error While Deleting Record")
+      error: () => {
+        alert('Error While Deleting Record');
+      },
+      complete: () => {
+        this.getAllStudents();
       }
     })
-  }
+  };
 
-  editStudent(id:any):void {
+  editRecord(id:any):void {
     this.route.navigate(['update/' + id]);
   }
 

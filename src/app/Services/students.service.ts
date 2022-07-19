@@ -23,16 +23,16 @@ export class StudentsService {
   }
 
   // Add Student to Database
-  addNewStudent(student: Students): Observable<Students>{
-    return this.http.post<Students>(`${this.REST_API_URL}/create`, student, this.HTTP_HEADER).pipe(
-      tap(newStudent => console.log(`newStudent = ${JSON.stringify(newStudent)}`)),
-      catchError(error => of(new Students())),
-    );
+  addNewStudent(body:object):Observable<Students>{
+    return this.http.post<Students>(`${this.REST_API_URL}/create`, body, this.HTTP_HEADER).pipe(
+      tap( addedStudent => console.log(`addedStudent is :- ${JSON.stringify(addedStudent)}`)),
+      catchError( error => of())
+    )
   }
 
   // Get Student By Id
   getStudentById(id: string):Observable<Students | any>{
-    const thisUrl = `${this.REST_API_URL}/${id}`;
+    const thisUrl = `${this.REST_API_URL}/find/${id}`;
     return this.http.get<Students>(thisUrl).pipe(
       tap(thisStudent => console.log(`thisStudent = ${JSON.stringify(thisStudent)}`)),
       catchError(error => of(new Students())),
@@ -40,18 +40,20 @@ export class StudentsService {
   }
 
   // Update Student in Database
-  updateStudent(student: Students): Observable<Students>{
-    return this.http.put<Students>(`${this.REST_API_URL}/update/${student.id}`, student, this.HTTP_HEADER).pipe(
-      tap(studentUpdate => console.log(`Update Student = ${JSON.stringify(studentUpdate)}`)),
+  updateStudent(id: string, body:object): Observable<Students>{
+    return this.http.put<Students>(`${this.REST_API_URL}/update/${id}`, body, this.HTTP_HEADER).pipe(
+      tap(updatedStudent => console.log(`Update Student = ${JSON.stringify(updatedStudent)}`)),
       catchError(error => of(new Students())),
     );
   }
 
   // Delete Student By Id
-  deleteStudent(id: any): Observable <Students>{
-    return this.http.delete<Students>(`${this.REST_API_URL}/remove/${id}`, this.HTTP_HEADER).pipe(
-      tap((deletedStudent:Students) => console.log(`deletedStudent = ${JSON.stringify(deletedStudent)}`))
-  )}
+  deleteStudent(id:string):Observable<Students>{
+    return this.http.get<Students>(`${this.REST_API_URL}/remove/${id}`).pipe(
+      tap( removedStudent => console.log(`This Record Was Deleted: ${JSON.stringify(removedStudent)}`)),
+      catchError( error => of())
+    )
+  }
   
 
   constructor(private http: HttpClient) { }
