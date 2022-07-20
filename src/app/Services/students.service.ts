@@ -49,7 +49,7 @@ export class StudentsService {
 
   // Delete Student By Id
   deleteStudent(id:string):Observable<Students>{
-    return this.http.delete<Students>(`${this.REST_API_URL}/remove/${id}`).pipe(
+    return this.http.get<Students>(`${this.REST_API_URL}/remove/${id}`).pipe(
       tap( removedStudent => console.log(`This Record Was Deleted: ${JSON.stringify(removedStudent)}`)),
       catchError( error => of())
     )
