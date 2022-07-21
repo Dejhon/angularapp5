@@ -54,7 +54,7 @@ studentRoute.route('/update/:id').put((req, res, next) => {
     })
 })
 
-studentRoute.route('/remove/:id').get((req, res, next) => {
+studentRoute.route('/remove/:id').delete((req, res, next) => {
     Student.findOneAndRemove(req.params.id, (error, data)=>{
         if(error){
             return next(error)
