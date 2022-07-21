@@ -15,28 +15,28 @@ export class AddstudentComponent implements OnInit {
 
   constructor(private studentService: StudentsService, private route: Router) { }
 
-  studentForm = new FormGroup({
-    name: new FormControl('',Validators.required),
-    email: new FormControl('', Validators.required),
-    cohort: new FormControl('', Validators.required),
-    phoneNumber : new FormControl('', Validators.required),
-  })
+  // studentForm = new FormGroup({
+  //   name: new FormControl('',Validators.required),
+  //   email: new FormControl('', Validators.required),
+  //   cohort: new FormControl('', Validators.required),
+  //   phoneNumber : new FormControl('', Validators.required),
+  // })
 
-  get name(){
-    return this.studentForm.get('name')
-  }
+  // get name(){
+  //   return this.studentForm.get('name')
+  // }
 
-  get email(){
-    return this.studentForm.get('email')
-  }
+  // get email(){
+  //   return this.studentForm.get('email')
+  // }
 
-  get cohort(){
-    return this.studentForm.get('cohort')
-  }
+  // get cohort(){
+  //   return this.studentForm.get('cohort')
+  // }
 
-  get phoneNumber(){
-    return this.studentForm.get('phoneNumber')
-  }
+  // get phoneNumber(){
+  //   return this.studentForm.get('phoneNumber')
+  // }
 
   ngOnInit(): void {
   }

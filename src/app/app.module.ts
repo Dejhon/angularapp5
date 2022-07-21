@@ -21,7 +21,7 @@ import { UpdatestudentComponent } from './Components/updatestudent/updatestudent
     StudentsComponent,
     AddstudentComponent,
     UpdatestudentComponent
-  ],
+],
   imports: [
     BrowserModule,
     AppRoutingModule,

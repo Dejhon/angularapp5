@@ -1,20 +1,20 @@
- <form action="" [formGroup]="studentForm" autocomplete="off" method="">
+ <form action=""  autocomplete="off" method="">
     <div class="container">
         <div class="name">
             <label for="">First Name:</label>
-            <input type="text" formControlName="name" #name>
+            <input type="text"  #name>
         </div>
         <div class="email">
             <label for="">Email:</label>
-            <input type="email" formControlName="email" #email>
+            <input type="email"  #email>
         </div>
         <div class="cohort">
             <label for="">cohort:</label>
-            <input type="number" max="2" min="1" formControlName="cohort" #cohort>
+            <input type="number" max="2" min="1"  #cohort>
         </div>
         <div class="phoneNumber">
             <label for="">Phone Number:</label>
-            <input type="text" formControlName="name" #phoneNumber>
+            <input type="text" #phoneNumber>
         </div>
         <div class="sub_btn">
             <input type="submit" value="Submit" value="ADD STUDENT"(click)="addStudent(
