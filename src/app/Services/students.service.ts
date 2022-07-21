@@ -32,8 +32,7 @@ export class StudentsService {
 
   // Get Student By Id
   getStudentById(id: string):Observable<Students | any>{
-    const thisUrl = `${this.REST_API_URL}/find/${id}`;
-    return this.http.get<Students>(thisUrl).pipe(
+    return this.http.get<Students>(`${this.REST_API_URL}/find/${id}`).pipe(
       tap(thisStudent => console.log(`thisStudent = ${JSON.stringify(thisStudent)}`)),
       catchError(error => of(new Students())),
     );
