@@ -14,10 +14,12 @@ export class StudentsService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
+  constructor(private http: HttpClient) { }
+
   // Get All Students From Database
   getStudents(): Observable<Students[]>{
     return this.http.get<Students[]>(this.REST_API_URL).pipe(
-      tap((retrievedStudents: any) => console.log(`retrievedStudents = ${JSON.stringify(retrievedStudents)}`)),
+      tap((allStudents: any) => console.log(`student List = ${JSON.stringify(allStudents)}`)),
       catchError(error => of([])),
     );
   }
@@ -25,7 +27,7 @@ export class StudentsService {
   // Add Student to Database
   addNewStudent(body:object):Observable<Students>{
     return this.http.post<Students>(`${this.REST_API_URL}/create`, body, this.HTTP_HEADER).pipe(
-      tap( addedStudent => console.log(`addedStudent is :- ${JSON.stringify(addedStudent)}`)),
+      tap( newStudent => console.log(`newly added student is  ${JSON.stringify(newStudent)}`)),
       catchError( error => of())
     )
   }
@@ -33,7 +35,7 @@ export class StudentsService {
   // Get Student By Id
   getStudentById(id: string):Observable<Students | any>{
     return this.http.get<Students>(`${this.REST_API_URL}/find/${id}`).pipe(
-      tap(thisStudent => console.log(`thisStudent = ${JSON.stringify(thisStudent)}`)),
+      tap(selectedStudent => console.log(`selected student = ${JSON.stringify(selectedStudent)}`)),
       catchError(error => of(new Students())),
     );
   }
@@ -41,19 +43,17 @@ export class StudentsService {
   // Update Student in Database
   updateStudent(id: string, body:object): Observable<Students>{
     return this.http.put<Students>(`${this.REST_API_URL}/update/${id}`, body, this.HTTP_HEADER).pipe(
-      tap(updatedStudent => console.log(`Update Student = ${JSON.stringify(updatedStudent)}`)),
+      tap(newData => console.log(`Update Student = ${JSON.stringify(newData)}`)),
       catchError(error => of(new Students())),
     );
   }
 
   // Delete Student By Id
-  deleteStudent(id:string):Observable<Students>{
-    return this.http.get<Students>(`${this.REST_API_URL}/remove/${id}`).pipe(
+  deleteStudent(_id:string):Observable<Students>{
+    return this.http.get<Students>(`${this.REST_API_URL}/remove/${_id}`).pipe(
       tap( removedStudent => console.log(`This Record Was Deleted: ${JSON.stringify(removedStudent)}`)),
       catchError( error => of())
     )
   }
   
-
-  constructor(private http: HttpClient) { }
 }
