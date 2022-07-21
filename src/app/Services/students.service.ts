@@ -29,7 +29,7 @@ export class StudentsService {
     return this.http.post<Students>(`${this.REST_API_URL}/create`, body, this.HTTP_HEADER).pipe(
       tap( newStudent => console.log(`newly added student is  ${JSON.stringify(newStudent)}`)),
       catchError( error => of())
-    )
+    );
   }
 
   // Get Student By Id
@@ -53,7 +53,7 @@ export class StudentsService {
     return this.http.delete<Students>(`${this.REST_API_URL}/remove/ + ${id}`).pipe(
       tap( removedStudent => console.log(`This Record Was Deleted: ${JSON.stringify(removedStudent)}`)),
       catchError( error => of())
-    )
+    );
   }
   
 }
