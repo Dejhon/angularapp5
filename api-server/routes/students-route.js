@@ -65,9 +65,9 @@ studentRoute.route('/update/:id').put((req, res, next) => {
 // })
 
 studentRoute.get('/remove/:id', (req, res) => {
-    Student.findByIdAndDelete(req.params.id, (err, data)=>{
-        if(err){
-            console.log(err)
+    Student.findByIdAndDelete(req.params.id, (error, data)=>{
+        if(error){
+            return next(error)
         }else{
             res.json(data)
         }
