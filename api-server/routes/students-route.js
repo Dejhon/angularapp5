@@ -54,10 +54,20 @@ studentRoute.route('/update/:id').put((req, res, next) => {
     })
 })
 
-studentRoute.route('/remove/:id').delete((req, res, next) => {
-    Student.findOneAndRemove(req.params._id, (error, data)=>{
-        if(error){
-            return next(error)
+// studentRoute.route('/remove/:id').delete((req, res, next) => {
+//     Student.findByIdAndDelete(req.params.id, (error, data)=>{
+//         if(error){
+//             return next(error)
+//         }else{
+//             res.json(data)
+//         }
+//     })
+// })
+
+studentRoute.get('/remove/:id', (req, res) => {
+    Student.findByIdAndDelete(req.params.id, (err, data)=>{
+        if(err){
+            console.log(err)
         }else{
             res.json(data)
         }
