@@ -1,4 +1,6 @@
+const e = require('express');
 let express = require('express');
+const students = require('../models/students');
 const { create } = require('../models/students');
 const app = express();
 
@@ -67,9 +69,19 @@ studentRoute.route('/update/:id').put((req, res, next) => {
 studentRoute.get('/remove/:id', (req, res) => {
     Student.findByIdAndDelete(req.params.id, (error, data)=>{
         if(error){
-            return next(error)
+            console.error(error);
+            res.status(500).json({
+                message: "Student Not Found"
+            })
         }else{
-            res.json(data)
+            if(students){
+                res.status(200).json(students)
+            }else{
+                res.status(404).json({
+                    status: "404",
+                    message: "Data Not Found"
+                })
+            }
         }
     })
 })
