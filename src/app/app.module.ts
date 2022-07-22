@@ -14,13 +14,15 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AddstudentComponent } from './Components/addstudent/addstudent.component';
 import { UpdatestudentComponent } from './Components/updatestudent/updatestudent.component';
+import { BankinginfoComponent } from './Components/bankinginfo/bankinginfo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
     AddstudentComponent,
-    UpdatestudentComponent
+    UpdatestudentComponent,
+    BankinginfoComponent
 ],
   imports: [
     BrowserModule,

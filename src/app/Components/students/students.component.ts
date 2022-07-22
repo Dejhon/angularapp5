@@ -43,5 +43,9 @@ export class StudentsComponent implements OnInit {
     this.route.navigate(['update/' + id]);
   }
 
+  addCardInfo(id: any):void {
+    this.route.navigate(['cardInformation/' + id]);
+  }
+
 
 }

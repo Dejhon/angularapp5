@@ -1,0 +1,71 @@
+form{
+    margin: auto;
+    width: 400px;
+    margin-top: 30px;
+}
+
+form h2{
+    text-align: center;
+    color: blue;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.id, .status{
+    display: grid;
+    grid-template-columns: 100%;
+    margin-top: 13px;
+}
+
+.bank, .account{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 20px;
+    column-gap: 6px;
+}
+
+.id input{
+    height: 23px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.bank .name input, .bank .branch input{
+    height: 23px;
+    width: 190px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.account .account_num input{
+    height: 23px;
+    width: 190px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.account .account_type select{
+    height: 25px;
+    width: 194px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.status select{
+    height: 25px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.sub_btn{
+    margin-top: 20px;
+    text-align: center;
+}

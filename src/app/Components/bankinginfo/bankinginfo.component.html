@@ -1,0 +1,50 @@
+<form action="">
+    <div class="container">
+
+        <h2>ACCOUNT INFORMATION</h2>
+
+        <div class="id">
+            <label for="">STUDENT ID</label>
+            <input readonly value="{{student._id}}">
+        </div>
+    
+        <div class="bank">
+            <div class="name">
+                <label for="">BANK</label>
+                <input type="text" placeholder="Bank Name">
+            </div>
+            <div class="branch">
+                <label for="">BRANCH</label>
+                <input type="text" placeholder="Branch">
+            </div>
+        </div>
+    
+        <div class="account">
+            <div class="account_num">
+                <label for="">ACCOUNT NUMBER</label>
+                <input type="text" placeholder="xxxx xxxx xxxx xxxx">
+            </div>
+            <div class="account_type">
+                <label for="">ACCOUNT TYPE</label><br>
+                <select>
+                    <option value="Chequing"> Chequing</option>
+                    <option value="Savings"> Savings</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="status">
+            <label for="">STATUS</label>
+            <select>
+                <option value="Pre-Active"> Pre-Active</option>
+                <option value="Active"> Active</option>
+                <option value="Suspended"> Suspendend</option>
+            </select>
+        </div>
+    
+        <div class="sub_btn">
+            <button mat-flat-button color="primary">SUBMIT</button>
+        </div>
+
+    </div>
+</form>
