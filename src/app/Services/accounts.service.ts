@@ -32,5 +32,13 @@ export class AccountsService {
       catchError( error => of())
     );
   }
+
+  // find account information by id
+  getAccountById(id: string):Observable<Accounts | any>{
+    return this.http.get<Accounts>(`${this.URL}/find/${id}`).pipe(
+      tap(selectedAccount => console.log(`selected Account = ${JSON.stringify(selectedAccount)}`)),
+      catchError(error => of(new Accounts())),
+    );
+  }
   
 }

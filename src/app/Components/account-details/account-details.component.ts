@@ -13,7 +13,7 @@ export class AccountDetailsComponent implements OnInit {
 
   accounts!: Accounts[];
 
-  constructor(private accountsService:AccountsService) { }
+  constructor(private accountsService:AccountsService, private route: Router) { }
 
   ngOnInit(): void {
     this.getAllAccounts();
@@ -23,6 +23,10 @@ export class AccountDetailsComponent implements OnInit {
     this.accountsService.getAccounts().subscribe((allAccounts)=>{
       this.accounts = allAccounts;
     })
+  }
+
+  editRecord(id:any):void {
+    this.route.navigate(['updateAccount/' + id]);
   }
 
 }

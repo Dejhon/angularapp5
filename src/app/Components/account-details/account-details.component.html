@@ -21,7 +21,7 @@
                 <p>Status: {{banking.status}}</p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-flat-button color="warn" disabled="true">Edit</button>&nbsp;
+                <button mat-flat-button color="warn" (click)="editRecord(banking._id)">Edit</button>&nbsp;
                 <button mat-flat-button color="warn" disabled="true">Delete</button>
             </mat-card-actions>
     </mat-card>

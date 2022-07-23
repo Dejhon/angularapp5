@@ -18,6 +18,7 @@ import { BankinginfoComponent } from './Components/bankinginfo/bankinginfo.compo
 import { AccountsService } from './Services/accounts.service';
 import { AccountDetailsComponent } from './Components/account-details/account-details.component';
 import {MatCardModule} from '@angular/material/card';
+import { AccountUpdateComponent } from './Component/account-update/account-update.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import {MatCardModule} from '@angular/material/card';
     AddstudentComponent,
     UpdatestudentComponent,
     BankinginfoComponent,
-    AccountDetailsComponent
-],
+    AccountDetailsComponent,
+    AccountUpdateComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
