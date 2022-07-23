@@ -1,0 +1,58 @@
+<form action="">
+    <div class="container">
+
+        <h2>ACCOUNT INFORMATION</h2>
+
+        <div class="id">
+            <label for="">STUDENT ID</label>
+            <input readonly value="{{accounts.studentID}}" #studentID>
+        </div>
+    
+        <div class="bank">
+            <div class="name">
+                <label for="">BANK</label>
+                <input type="text" placeholder="Bank Name" value="{{accounts.bank}}" #bank>
+            </div>
+            <div class="branch">
+                <label for="">BRANCH</label>
+                <input type="text" placeholder="Branch" value="{{accounts.branch}}" #branch>
+            </div>
+        </div>
+    
+        <div class="account">
+            <div class="account_num">
+                <label for="">ACCOUNT NUMBER</label>
+                <input type="text" placeholder="xxxx xxxx xxxx xxxx" value="{{accounts.accountNumber}}" #accountNumber>
+            </div>
+            <div class="account_type">
+                <label for="">ACCOUNT TYPE</label><br>
+                <select #accountType>
+                    <option value="Chequing"> Chequing</option>
+                    <option value="Savings"> Savings</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="status">
+            <label for="">STATUS</label>
+            <select #status>
+                <option value="Pre-Active"> Pre-Active</option>
+                <option value="Active"> Active</option>
+                <option value="Suspended"> Suspendend</option>
+            </select>
+        </div>
+    
+        <div class="sub_btn">
+            <button mat-flat-button color="primary" (click)="update(
+                {bank : bank.value.trim(),
+                branch : branch.value.trim(),
+                accountNumber: accountNumber.value,
+                accountType: accountType.value,
+                status: status.value
+                }
+                )">update</button>
+        </div>
+
+    </div>
+</form>
+

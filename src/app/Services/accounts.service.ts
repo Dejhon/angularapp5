@@ -40,5 +40,14 @@ export class AccountsService {
       catchError(error => of(new Accounts())),
     );
   }
+
+  // Update account in Database
+  updateAccount(id: string, body:object): Observable<Accounts>{
+    return this.http.put<Accounts>(`${this.URL}/update/${id}`, body, this.HTTP_HEADER).pipe(
+      tap(newData => console.log(`Updated Account = ${JSON.stringify(newData)}`)),
+      catchError(error => of(new Accounts())),
+    );
+  }
+
   
 }
