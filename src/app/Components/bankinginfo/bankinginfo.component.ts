@@ -37,7 +37,7 @@ export class BankinginfoComponent implements OnInit {
       },
       complete: ()=>{
         alert("Successful");
-        this.route.navigate(['/home']);
+        this.route.navigate(['/accounts']);
       }
     })
   }

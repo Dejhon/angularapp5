@@ -8,23 +8,12 @@ let Account = require('../models/accounts');
 let accountRoute = express.Router();
 
 // Account route for mongo get
-accountRoute.get('/', (req, res) => {
+accountRoute.route('/').get((req, res) => {
     Account.find((error, data)=>{
         if(error){
-            console.error(error);
-            res.status(500).json({
-                message: error
-            })
+            return next(error)
         }else{
-            if(account){
-                res.json(data)
-                res.status(200).json(account)
-            }else{
-                res.status(404).json({
-                status: "404",
-                message: "No Data Found"
-              })
-            }
+            res.json(data)
         }
     })
 })

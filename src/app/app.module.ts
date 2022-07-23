@@ -16,6 +16,8 @@ import { AddstudentComponent } from './Components/addstudent/addstudent.componen
 import { UpdatestudentComponent } from './Components/updatestudent/updatestudent.component';
 import { BankinginfoComponent } from './Components/bankinginfo/bankinginfo.component';
 import { AccountsService } from './Services/accounts.service';
+import { AccountDetailsComponent } from './Components/account-details/account-details.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { AccountsService } from './Services/accounts.service';
     StudentsComponent,
     AddstudentComponent,
     UpdatestudentComponent,
-    BankinginfoComponent
+    BankinginfoComponent,
+    AccountDetailsComponent
 ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { AccountsService } from './Services/accounts.service';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   providers: [StudentsService, AccountsService],
   bootstrap: [AppComponent]
