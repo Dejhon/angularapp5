@@ -5,28 +5,28 @@
 
         <div class="id">
             <label for="">STUDENT ID</label>
-            <input readonly value="{{student._id}}">
+            <input readonly value="{{student._id}}" #studentID>
         </div>
     
         <div class="bank">
             <div class="name">
                 <label for="">BANK</label>
-                <input type="text" placeholder="Bank Name">
+                <input type="text" placeholder="Bank Name" #bank>
             </div>
             <div class="branch">
                 <label for="">BRANCH</label>
-                <input type="text" placeholder="Branch">
+                <input type="text" placeholder="Branch" #branch>
             </div>
         </div>
     
         <div class="account">
             <div class="account_num">
                 <label for="">ACCOUNT NUMBER</label>
-                <input type="text" placeholder="xxxx xxxx xxxx xxxx">
+                <input type="text" placeholder="xxxx xxxx xxxx xxxx" #accountNumber>
             </div>
             <div class="account_type">
                 <label for="">ACCOUNT TYPE</label><br>
-                <select>
+                <select #accountType>
                     <option value="Chequing"> Chequing</option>
                     <option value="Savings"> Savings</option>
                 </select>
@@ -35,7 +35,7 @@
     
         <div class="status">
             <label for="">STATUS</label>
-            <select>
+            <select #status>
                 <option value="Pre-Active"> Pre-Active</option>
                 <option value="Active"> Active</option>
                 <option value="Suspended"> Suspendend</option>
@@ -43,7 +43,20 @@
         </div>
     
         <div class="sub_btn">
-            <button mat-flat-button color="primary">SUBMIT</button>
+            <button mat-flat-button color="primary" (click)="addBankingInfo({
+                studentID: studentID.value,
+                bank : bank.value.trim(),
+                branch : branch.value.trim(),
+                accountNumber: accountNumber.value,
+                accountType: accountType.value,
+                status: status.value
+                });
+                studentID.value = '';
+                bank.value = '';
+                branch.value = '';
+                accountNumber.value = '';
+                accountType.value = '';
+                status.value = ''">SUBMIT</button>
         </div>
 
     </div>
