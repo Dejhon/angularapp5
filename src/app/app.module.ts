@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AddstudentComponent } from './Components/addstudent/addstudent.component';
 import { UpdatestudentComponent } from './Components/updatestudent/updatestudent.component';
 import { BankinginfoComponent } from './Components/bankinginfo/bankinginfo.component';
+import { AccountsService } from './Services/accounts.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { BankinginfoComponent } from './Components/bankinginfo/bankinginfo.compo
     ReactiveFormsModule,
     MatInputModule
   ],
-  providers: [StudentsService,],
+  providers: [StudentsService, AccountsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
