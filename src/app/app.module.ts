@@ -19,6 +19,8 @@ import { AccountsService } from './Services/accounts.service';
 import { AccountDetailsComponent } from './Components/account-details/account-details.component';
 import {MatCardModule} from '@angular/material/card';
 import { AccountUpdateComponent } from './Components/account-update/account-update.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TestComponent } from './Components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { AccountUpdateComponent } from './Components/account-update/account-upda
     BankinginfoComponent,
     AccountDetailsComponent,
     AccountUpdateComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { AccountUpdateComponent } from './Components/account-update/account-upda
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [StudentsService, AccountsService],
   bootstrap: [AppComponent]
