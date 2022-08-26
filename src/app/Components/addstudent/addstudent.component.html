@@ -14,20 +14,20 @@
         </div>
         <div class="phoneNumber">
             <label for="">Phone Number:</label>
-            <input type="text" #phoneNumber>
+            <input type="text" #PhoneNumber>
         </div>
         <div class="sub_btn">
             <input type="submit" value="Submit" value="ADD STUDENT"(click)="addStudent(
                 {name : name.value.trim(),
                 email : email.value.trim(),
                 cohort: cohort.value,
-                phoneNumber: phoneNumber.value
+                phoneNumber: PhoneNumber.value
                 }
                 );
                 name.value = '';
                 email.value = '';
                 cohort.value = '';
-                phoneNumber.value = '';
+                PhoneNumber.value = '';
                 ">
         </div>
     </div>
